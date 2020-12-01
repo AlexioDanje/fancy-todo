@@ -1,0 +1,15 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav
+               mode="side"></mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <span>Fancy Todo App </span>
+  </mat-toolbar>
+  <div class="but">
+    <button mat-stroked-button color="primary" (click)="all()">All</button>
+  </div>
+  <div class="but">
+    <button mat-stroked-button color="primary" (click)="complete()" >Completed</button>
+  </div>
+
+</mat-sidenav-container>

@@ -1,0 +1,48 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <p>{{todo.title}}
+      </p>
+      <span mat-raised-button matTooltip="Delete TODO" (click)="deleteTodo()" class="del">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <p *ngIf="isWritable">
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput required [(ngModel)]="todo.description" name="description"/>
+    </mat-form-field>
+  </p>
+  <p *ngIf="!isWritable">
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput required [(ngModel)]="todo.description" name="description" [readonly]="true"/>
+    </mat-form-field>
+  </p>
+
+  <mat-form-field *ngIf="isWritable">
+    <input matInput [(ngModel)]="todo.dueDate" [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field *ngIf="!isWritable">
+    <input matInput [(ngModel)]="todo.dueDate" [matDatepicker]="picker" placeholder="Choose a date" [readonly]="true">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select [(value)]="todo.status">
+      <mat-option *ngFor="let status of status" [value]="status">
+        {{status}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p></p>
+  <button mat-raised-button color="primary" (click)="updateTodo()">Update</button>
+</mat-expansion-panel>
+
+
+
