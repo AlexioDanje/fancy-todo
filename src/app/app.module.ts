@@ -28,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DataService } from './services/data.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ModalComponent } from './modal/modal.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
             declarations: [
@@ -38,31 +39,32 @@ import { ModalComponent } from './modal/modal.component';
               NavbarComponent,
               ModalComponent
             ],
-            imports: [
-              BrowserModule,
-              FormsModule,
-              AppRoutingModule,
-              HttpClientModule,
-              FontAwesomeModule,
-              MatDialogModule,
-              BrowserAnimationsModule,
-              MatTooltipModule,
-              MatButtonModule,
-              MatFormFieldModule,
-              MatSidenavModule,
-              MatIconModule,
-              MatToolbarModule,
-              MatCardModule,
-              MatListModule,
-              MatInputModule,
-              MatExpansionModule,
-              MatDatepickerModule,
-              MatNativeDateModule,
-              ReactiveFormsModule,
-              MatSelectModule,
-              DragDropModule
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FontAwesomeModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        MatTooltipModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatListModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        DragDropModule,
+        MatRadioModule
 
-            ],
+    ],
             providers: [BrowserModule, DataService],
             bootstrap: [AppComponent]
           })

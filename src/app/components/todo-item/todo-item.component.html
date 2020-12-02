@@ -6,6 +6,9 @@
       <span mat-raised-button matTooltip="Delete TODO" (click)="deleteTodo()" class="del">
           <fa-icon [icon]="faTrash"></fa-icon>
         </span>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">{{todo.status}}</mat-radio-button>
+      </mat-radio-group>
     </mat-panel-title>
   </mat-expansion-panel-header>
   <p *ngIf="isWritable">
