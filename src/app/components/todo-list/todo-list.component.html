@@ -4,7 +4,7 @@
   </button>
 </div>
 <mat-accordion [multi]="false">
-    <mat-list role="list" class="todo-list">
+    <mat-list role="list" class="todo-list" id="delete">
       <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" >
         <todo-item class="example-box" *ngFor="let todo of todos; trackBy: trackByMethod" cdkDrag [todo]="todo"></todo-item>
       </div>

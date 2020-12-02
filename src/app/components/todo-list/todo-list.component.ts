@@ -3,7 +3,7 @@ import {TodoService} from '../../services/todo.service';
 import {Router} from '@angular/router';
 import {StatusEnum, Todo} from '../../model/todo.model';
 import {DataService} from '../../services/data.service';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {ModalComponent} from '../../modal/modal.component';
 import {Subscription} from 'rxjs';
@@ -44,7 +44,12 @@ export class TodoListComponent {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
+      // tslint:disable-next-line:triple-equals
+    } else if (event.container.id !== 'delete'){
+      this.todos.splice(event.previousIndex, 1);
+    }
   }
   openDialog(){
     const dialogConfig = new MatDialogConfig();
@@ -54,6 +59,7 @@ export class TodoListComponent {
 
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
+
 }
 
 

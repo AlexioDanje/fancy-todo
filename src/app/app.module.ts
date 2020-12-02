@@ -29,6 +29,7 @@ import { DataService } from './services/data.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ModalComponent } from './modal/modal.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
             declarations: [
@@ -37,7 +38,8 @@ import {MatRadioModule} from '@angular/material/radio';
               TodoItemComponent,
               CreateTodoComponent,
               NavbarComponent,
-              ModalComponent
+              ModalComponent,
+              FooterComponent
             ],
     imports: [
         BrowserModule,

@@ -3,10 +3,10 @@
     <mat-panel-title>
       <p>{{todo.title}}
       </p>
-      <span mat-raised-button matTooltip="Delete TODO" (click)="deleteTodo()" class="del">
-          <fa-icon [icon]="faTrash"></fa-icon>
+      <span mat-raised-button matTooltip="Delete TODO"  class="del">
+
         </span>
-      <mat-radio-group aria-label="Select an option">
+      <mat-radio-group aria-label="Select an option" class="del">
         <mat-radio-button value="1">{{todo.status}}</mat-radio-button>
       </mat-radio-group>
     </mat-panel-title>
