@@ -5,7 +5,7 @@
 </div>
 <mat-accordion [multi]="false">
     <mat-list role="list" class="todo-list">
-      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" >
         <todo-item class="example-box" *ngFor="let todo of todos; trackBy: trackByMethod" cdkDrag [todo]="todo"></todo-item>
       </div>
     </mat-list>

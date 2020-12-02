@@ -6,6 +6,7 @@ import {DataService} from '../../services/data.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {ModalComponent} from '../../modal/modal.component';
+import {Subscription} from 'rxjs';
 
 @Component({
              selector: 'todo-list',
@@ -19,6 +20,9 @@ export class TodoListComponent {
   complete = false;
 
   constructor(private todoService: TodoService, private router: Router, private dataService: DataService, public matDialog: MatDialog) {
+
+    this.dataService.currentMessage.subscribe(message => this.complete = message);
+    console.log(this.complete);
     this.retrieveTodos();
   }
 
@@ -29,13 +33,9 @@ export class TodoListComponent {
     this.todoService.getAll().subscribe(data => {
       this.todos = data.reverse();
       // tslint:disable-next-line:prefer-for-of
-      for (const val of this.todos) {
-        // tslint:disable-next-line:triple-equals
-        if (val.status === StatusEnum.DONE){
-          this.todoComplete.push(val);
-        }
+      if (this.complete){
+        this.todos = this.todos.filter(todo => todo.status === StatusEnum.DONE);
       }
-
     });
   }
 
@@ -53,9 +53,6 @@ export class TodoListComponent {
     dialogConfig.id = "modal-component";
 
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
-  }
-  changeMode(){
-
   }
 }
 

@@ -25,7 +25,7 @@ export class CreateTodoComponent {
     this.todoService.create(this.todo.title).subscribe(response => {
       this.todos.push(response);
     },);
-    this.router.navigate(['/todos'])
+    this.router.navigate(['/todos']);
   }
 
   retrieveTodos(): void {
